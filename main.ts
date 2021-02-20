@@ -8,5 +8,5 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
         basic.pause(1000)
     }
     basic.showIcon(IconNames.Skull)
-    music.playTone(Note.C, music.beat())
+    music.playMelody("C", 120)
 })

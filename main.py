@@ -1,3 +1,5 @@
+from microbit import *
+
 timer = 0
 
 def on_button_pressed_a():
@@ -8,5 +10,5 @@ def on_button_pressed_a():
         timer += -1
         basic.pause(1000)
     basic.show_icon(IconNames.SKULL)
-    music.play(music.WAWAWAWAA)
+    music.play_melody("C", 120)
 input.on_button_pressed(Button.A, on_button_pressed_a)
