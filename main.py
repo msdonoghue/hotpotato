@@ -1,15 +1,34 @@
-from microbit import *
-timer = 0
+hand = 0
+# when shaken Microbit shows either rock/paper/scissors
+def on_gesture_shake():
+    global hand
+    hand = randint(1, 3)
+    if hand == 1:
+        basic.show_leds("""
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            """)
+    elif hand == 2:
+        basic.show_leds("""
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            """)
+    else:
+        basic.show_leds("""
+            # # . . #
+            # # . # .
+            . . # . .
+            # # . # .
+            # # . . #
+            """)
+input.on_gesture(Gesture.SHAKE, on_gesture_shake)
+    
+   
 
-def on_button_pressed_a():
-    global timer
-    timer = randint(1, 3)
-    basic.show_icon(IconNames.CHESSBOARD)
-    while timer > 0:
-        timer += -1
-        basic.pause(1000)
-    basic.show_icon(IconNames.SKULL)
-    music.begin_melody(music.built_in_melody(Melodies.WAWAWAWAA),
-    MelodyOptions.ONCE)
-input.on_button_pressed(Button.A, on_button_pressed_a)
-
+ 

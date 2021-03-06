@@ -1,12 +1,32 @@
-let timer = 0
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
+let hand = 0
+//  when shaken Microbit shows either rock/paper/scissors
+input.onGesture(Gesture.Shake, function on_gesture_shake() {
     
-    timer = randint(1, 3)
-    basic.showIcon(IconNames.Chessboard)
-    while (timer > 0) {
-        timer += -1
-        basic.pause(1000)
+    hand = randint(1, 3)
+    if (hand == 1) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    } else if (hand == 2) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            `)
+    } else {
+        basic.showLeds(`
+            # # . . #
+            # # . # .
+            . . # . .
+            # # . # .
+            # # . . #
+            `)
     }
-    basic.showIcon(IconNames.Skull)
-    music.beginMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
+    
 })

@@ -1,5 +1,5 @@
 {
-    "name": "hotPotato",
+    "name": "PaperRockScissors",
     "description": "",
     "dependencies": {
         "core": "*",
